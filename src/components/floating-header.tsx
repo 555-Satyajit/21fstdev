@@ -50,9 +50,12 @@ export function FloatingHeader() {
 					))}
 				</div>
 				<div className="flex items-center gap-2">
-					<Button size="sm" render={<Link href="/login" />} nativeButton={false}>
+					<Link
+						href="/login"
+						className={buttonVariants({ size: "sm" })}
+					>
 						Login
-					</Button>
+					</Link>
 					<Sheet open={open} onOpenChange={setOpen}>
 						<Button
 							size="icon"
@@ -81,13 +84,21 @@ export function FloatingHeader() {
 									</a>
 								))}
 							</div>
-							<SheetFooter>
-								<Button variant="outline" render={<Link href="/login" onClick={() => setOpen(false)} />} nativeButton={false}>
+							<SheetFooter className="flex flex-col gap-2 p-4">
+								<Link 
+									href="/login" 
+									onClick={() => setOpen(false)}
+									className={buttonVariants({ variant: "outline" })}
+								>
 									Sign In
-								</Button>
-								<Button render={<Link href="/login" onClick={() => setOpen(false)} />} nativeButton={false}>
+								</Link>
+								<Link 
+									href="/login" 
+									onClick={() => setOpen(false)}
+									className={buttonVariants()}
+								>
 									Get Started
-								</Button>
+								</Link>
 							</SheetFooter>
 						</SheetContent>
 					</Sheet>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import {
 	AppleIcon,
 	AtSignIcon,
@@ -87,9 +87,12 @@ export function AuthPage() {
 					<div className="bg-[radial-gradient(50%_50%_at_50%_50%,--theme(--color-foreground/.04)_0,--theme(--color-foreground/.01)_80%,transparent_100%)] absolute top-0 right-0 h-320 w-60 [translate:5%_-50%] rounded-full" />
 					<div className="bg-[radial-gradient(50%_50%_at_50%_50%,--theme(--color-foreground/.04)_0,--theme(--color-foreground/.01)_80%,transparent_100%)] absolute top-0 right-0 h-320 w-60 -translate-y-87.5 rounded-full" />
 				</div>
-				<Button variant="ghost" className="absolute top-7 left-5" render={<Link href="/" />} nativeButton={false}>
+				<Link 
+					href="/" 
+					className={cn(buttonVariants({ variant: "ghost" }), "absolute top-7 left-5")}
+				>
 					<ChevronLeftIcon className='size-4 me-2' />Home
-				</Button>
+				</Link>
 				<div className="mx-auto space-y-4 sm:w-sm">
 					<div className="flex items-center gap-3 lg:hidden">
 						<Grid2x2PlusIcon className="size-6 text-lime-400" />

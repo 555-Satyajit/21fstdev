@@ -108,28 +108,42 @@ export function SessionNavBar() {
             <div className="flex h-[54px] w-full shrink-0  border-b p-2">
               <div className=" mt-[1.5px] flex w-full">
                 <DropdownMenu modal={false}>
-                  <DropdownMenuTrigger className="w-full" render={<Button variant="ghost" size="sm" className="flex w-fit items-center gap-2  px-2" />}><Avatar className='rounded size-4'>
-                                                          <AvatarFallback>O</AvatarFallback>
-                                                        </Avatar><motion.li
-                                                          variants={variants}
-                                                          className="flex w-fit items-center gap-2"
-                                                        >
-                                                          {!isCollapsed && (
-                                                            <>
-                                                              <p className="text-sm font-bold tracking-tight uppercase">
-                                                                {"Aurora Network"}
-                                                              </p>
-                                                              <ChevronsUpDown className="h-4 w-4 text-muted-foreground/50" />
-                                                            </>
-                                                          )}
-                                                        </motion.li></DropdownMenuTrigger>
+                  <DropdownMenuTrigger className="w-full" asChild>
+                    <Button variant="ghost" size="sm" className="flex w-fit items-center gap-2  px-2">
+                      <Avatar className='rounded size-4'>
+                        <AvatarFallback>O</AvatarFallback>
+                      </Avatar>
+                      <motion.li
+                        variants={variants}
+                        className="flex w-fit items-center gap-2"
+                      >
+                        {!isCollapsed && (
+                          <>
+                            <p className="text-sm font-bold tracking-tight uppercase">
+                              {"Aurora Network"}
+                            </p>
+                            <ChevronsUpDown className="h-4 w-4 text-muted-foreground/50" />
+                          </>
+                        )}
+                      </motion.li>
+                    </Button>
+                  </DropdownMenuTrigger>
                   <DropdownMenuContent align="start">
-                    <DropdownMenuItem className="flex items-center gap-2" render={<Link href="/settings/members" />}><UserCog className="h-4 w-4" />Manage members
-                                                            </DropdownMenuItem>{" "}
-                    <DropdownMenuItem className="flex items-center gap-2" render={<Link href="/settings/integrations" />}><Blocks className="h-4 w-4" />Integrations
-                                                            </DropdownMenuItem>
-                    <DropdownMenuItem render={<Link href="/select-org" className="flex items-center gap-2" />}><Plus className="h-4 w-4" />Create or join an organization
-                                                            </DropdownMenuItem>
+                    <DropdownMenuItem className="flex items-center gap-2" asChild>
+                      <Link href="/settings/members">
+                        <UserCog className="h-4 w-4" />Manage members
+                      </Link>
+                    </DropdownMenuItem>{" "}
+                    <DropdownMenuItem className="flex items-center gap-2" asChild>
+                      <Link href="/settings/integrations">
+                        <Blocks className="h-4 w-4" />Integrations
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/select-org" className="flex items-center gap-2">
+                        <Plus className="h-4 w-4" />Create or join an organization
+                      </Link>
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
@@ -368,8 +382,11 @@ export function SessionNavBar() {
                         </div>
                       </div>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem className="flex items-center gap-2" render={<Link href="/settings/profile" />}><UserCircle className="h-4 w-4" />Profile
-                                                                  </DropdownMenuItem>
+                      <DropdownMenuItem className="flex items-center gap-2" asChild>
+                        <Link href="/settings/profile">
+                          <UserCircle className="h-4 w-4" />Profile
+                        </Link>
+                      </DropdownMenuItem>
                       <DropdownMenuItem
                         className="flex items-center gap-2 cursor-pointer focus:bg-rose-500/10 focus:text-rose-500"
                         onClick={async () => {
